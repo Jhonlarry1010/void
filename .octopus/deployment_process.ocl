@@ -5,6 +5,10 @@ step "hello-world-using-bash" {
         action_type = "Octopus.Script"
         is_required = true
         properties = {
+            Octopus.Action.EnabledFeatures = "Octopus.Features.JsonConfigurationVariables,Octopus.Features.ConfigurationVariables,Octopus.Features.ConfigurationTransforms,Octopus.Features.SubstituteInFiles,Octopus.Features.SelectPowerShellEditionForWindows"
+            Octopus.Action.Package.AutomaticallyRunConfigurationTransformationFiles = "True"
+            Octopus.Action.Package.AutomaticallyUpdateAppSettingsAndConnectionStrings = "True"
+            Octopus.Action.PowerShell.Edition = "Desktop"
             Octopus.Action.RunOnServer = "true"
             Octopus.Action.Script.ScriptBody = <<-EOT
                 echo 'Hello world, using Bash'
